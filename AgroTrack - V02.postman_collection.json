@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "88892dcf-90c7-4c2a-9885-f6a4545cd2cd",
+		"name": "AgroTrack - V02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48042871",
+		"_collection_link": "https://dpatroni640-5008872.postman.co/workspace/Dante-Patroni's-Workspace~bc3d1b94-de4c-4615-871e-07ba06830bb8/collection/48042871-88892dcf-90c7-4c2a-9885-f6a4545cd2cd?action=share&source=collection_link&creator=48042871"
+	},
+	"item": [
+		{
+			"name": "Página Principal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Página Contacto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/contacto.html",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"contacto.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archivo CSS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/estilos.css",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"estilos.css"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Contactos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/contactos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contactos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Contacto",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Juan Perez\",\r\n  \"email\": \"juan@correo.com\",\r\n  \"mensaje\": \"Probando envío de contacto Juan\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/contactos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"contactos"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		}
+	]
+}

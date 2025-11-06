@@ -1,0 +1,29 @@
+{
+  "name": "agrotrackv2",
+  "version": "1.0.0",
+  "description": "Proyecto AgroTrack V2 - API REST con Express, Sequelize y MySQL",
+  "main": "app.js",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",           // Ejecuta el servidor normalmente
+    "dev": "nodemon app.js"           // Ejecuta con recarga automática en desarrollo
+  },
+
+  "keywords": ["nodejs", "express", "sequelize", "mysql", "api", "agrotrack"],
+  "author": "Dante Patroni",
+  "license": "ISC",
+
+  "dependencies": {
+    "dotenv": "^16.4.5",              // Manejo de variables de entorno (.env)
+    "express": "^4.19.2",             // Framework principal del servidor HTTP
+    "mysql2": "^3.15.3",              // Driver MySQL compatible con Sequelize
+    "sequelize": "^6.37.1"            // ORM para modelar y manipular la base de datos
+  },
+
+  "devDependencies": {
+    "nodemon": "^3.0.1"               // Herramienta para reinicio automático en desarrollo
+  }
+}
+
+

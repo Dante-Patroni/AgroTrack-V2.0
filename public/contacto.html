@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroTrack - Contacto</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <h1>📬 Contacto - AgroTrack</h1>
+    <nav>
+      <a href="/index.html">Inicio</a>
+      <a href="/contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Formulario de Contacto</h2>
+    <form id="form-contacto">
+      <label>Nombre:</label>
+      <input type="text" name="nombre" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Mensaje:</label>
+      <textarea name="mensaje" rows="4" required></textarea>
+
+      <button type="submit">Enviar Consulta</button>
+    </form>
+
+    <div id="respuesta"></div>
+  </main>
+
+  <script>
+    document.getElementById('form-contacto').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = {
+        nombre: form.nombre.value.trim(),
+        email: form.email.value.trim(),
+        mensaje: form.mensaje.value.trim()
+      };
+
+      const respuesta = document.getElementById('respuesta');
+      respuesta.textContent = '⏳ Enviando...';
+
+      try {
+        const res = await fetch('/api/contactos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (res.ok) {
+          respuesta.innerHTML = `<p class="ok">${result.message}</p>`;
+          form.reset();
+        } else {
+          respuesta.innerHTML = `<p class="error">❌ ${result.error || result.message}</p>`;
+        }
+      } catch (err) {
+        respuesta.innerHTML = `<p class="error">⚠️ Error al enviar: ${err.message}</p>`;
+      }
+    });
+  </script>
+</body>
+</html>
