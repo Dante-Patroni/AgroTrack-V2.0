@@ -50,9 +50,7 @@ app.get('/', (req, res) => {
 // 🩺 Endpoint de verificación del estado del servidor
 app.get('/health', (req, res) => {
   res.json({
-    status: 'OK',
-    message: 'Servidor funcionando correctamente 🚀',
-    time: new Date().toLocaleString('es-AR'),
+    status: 'ok'
   });
 });
 

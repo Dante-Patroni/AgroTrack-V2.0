@@ -6,7 +6,7 @@
  * Descripción:
  *   Define la estructura del modelo "Consulta", que representa
  *   las consultas enviadas desde el formulario de contacto.
- *   Este modelo se asocia directamente con la tabla "consultas"
+ *   Este modelo se asocia directamente con la tabla "contactos"
  *   en la base de datos MySQL.
  * ==========================================================
  */
@@ -53,7 +53,7 @@ const Consulta = sequelize.define(
     },
   },
   {
-    tableName: 'consultas', // Nombre exacto de la tabla en MySQL
+    tableName: 'contactos', // Nombre exacto de la tabla en MySQL
     timestamps: false, // Evita que Sequelize agregue createdAt / updatedAt
   }
 );

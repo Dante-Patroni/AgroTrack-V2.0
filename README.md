@@ -34,11 +34,16 @@ Base de datos creada ejecutando el script schema.sql
 
 El proyecto usa dotenv para gestionar las variables de entorno.
 Debes crear un archivo .env (no versionado) basado en .env.example:
+
+```
 DB_HOST=localhost
 DB_USER=root
-DB_PASS=
+DB_PASSWORD=
 DB_NAME=agrotrack
 PORT=3000
+```
+
+**Nota:** El dialect MySQL está hardcodeado en el código, no es necesario incluirlo en .env.
 
 🧠 Estructura del proyecto
 agrotrackV2/
@@ -53,10 +58,10 @@ agrotrackV2/
 │
 ├── models/
 │   ├── db.js                # Configuración de Sequelize
-│   └── Consulta.js          # Modelo Sequelize (tabla consultas)
+│   └── Consulta.js          # Modelo Sequelize (tabla contactos)
 │
 ├── controllers/
-│   └── contactoController.js # Lógica de endpoints (guardar y listar)
+│   └── contactoControllers.js # Lógica de endpoints (guardar y listar)
 │
 ├── routes/
 │   └── contactos.js         # Rutas /api/contactos
@@ -77,13 +82,11 @@ agrotrackV2/
 ✅ 1. Verificación del servidor
 
 GET /health
-📋 Devuelve el estado actual del servidor y la hora del sistema.
+📋 Devuelve el estado actual del servidor.
 
 Respuesta:
 {
-  "status": "OK",
-  "message": "Servidor funcionando correctamente 🚀",
-  "time": "06/11/2025, 12:30:00"
+  "status": "ok"
 }
 
 💬 2. Registrar nueva consulta
@@ -148,7 +151,7 @@ const Consulta = sequelize.define('Consulta', {
   mensaje: { type: DataTypes.TEXT, allowNull: false },
   fecha: { type: DataTypes.DATE, defaultValue: DataTypes.NOW }
 }, {
-  tableName: 'consultas',
+  tableName: 'contactos',
   timestamps: false
 });
 
@@ -166,11 +169,13 @@ module.exports = Consulta;
 🧰 Pruebas con Postman
 
 Se incluye en el repositorio el archivo:
-Agrotrac-V02.postman_collection.json
-Importación:
-Abrir Postman → Import
-Seleccionar el archivo AgroTrack_Postman.json
-Ejecutar las solicitudes GET y POST de la colección.
+**AgroTrack - V02.postman_collection.json**
+
+**Importación:**
+1. Abrir Postman → Import
+2. Seleccionar el archivo `AgroTrack - V02.postman_collection.json`
+3. Ejecutar las solicitudes GET y POST de la colección.
+
 Esto permite verificar de forma automática todas las rutas y respuestas esperadas.
 
 

@@ -25,7 +25,7 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,   // Contraseña del usuario
   {
     host: process.env.DB_HOST,     // Dirección del servidor (por ej. 'localhost')
-    dialect: process.env.DB_DIALECT, // Tipo de base de datos ('mysql')
+    dialect: 'mysql', // Tipo de base de datos MySQL
     logging: false,                // Desactiva el logeo de consultas SQL en consola
   }
 );
